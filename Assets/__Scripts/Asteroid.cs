@@ -203,7 +203,7 @@ public class Asteroid : MonoBehaviour
 
             if (otherGO.tag == "Player")
             {
-                player.GetComponent<PlayerShip>().damage();
+                gm.GetComponent<GameController>().damage();
             }
 
             if (size > 1)

@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
     
     private int score = 0;
     public TextMeshProUGUI scoreText;
+
+    private int jumps = 3;
+    public TextMeshProUGUI jumpsText;
     
     // Start is called before the first frame update
     void Start()
@@ -32,4 +35,14 @@ public class GameController : MonoBehaviour
         scoreText.text = "Score: " + score;
 
     }
+    
+    public void damage()
+    {
+        
+        jumps -= 1;
+        Debug.Log("Current number of jumps: " + jumps);
+        jumpsText.text = "Jumps: " + jumps;
+        
+    }
+    
 }

@@ -31,9 +31,7 @@ public class PlayerShip : MonoBehaviour
     public GameObject   bulletPrefab;
 
     Rigidbody           rigid;
-
-    private int jumps = 3;
-
+    
     void Awake()
     {
         S = this;
@@ -93,12 +91,6 @@ public class PlayerShip : MonoBehaviour
         {
             return S.transform.position;
         }
-    }
-
-    public void damage()
-    {
-        jumps -= 1;
-        Debug.Log("Current number of jumps: " + jumps);
     }
 
     public void Respawn()
