@@ -20,7 +20,8 @@ public class Asteroid : MonoBehaviour
 
     Rigidbody           rigid; // protected
     OffScreenWrapper    offScreenWrapper;
-    public GameObject gm;
+    private GameObject gm;
+    private GameObject player;
 
 #if DEBUG_Asteroid_ShotOffscreenDebugLines
     [Header("ShotOffscreenDebugLines")]
@@ -37,6 +38,7 @@ public class Asteroid : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController");
+        player = GameObject.FindGameObjectWithTag("Player");
         
         AsteraX.AddAsteroid(this);
 
@@ -198,8 +200,11 @@ public class Asteroid : MonoBehaviour
                 Destroy(otherGO);
                 gm.GetComponent<GameController>().increaseScore(AsteraX.AsteroidsSO.pointsForAsteroidSize[4 - size]);
             }
-            
-            //if (otherGO.tag == "Player"){Damage}
+
+            if (otherGO.tag == "Player")
+            {
+                player.GetComponent<PlayerShip>().damage();
+            }
 
             if (size > 1)
             {

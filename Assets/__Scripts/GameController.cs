@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     {
         
         score += increment;
-        Debug.Log(score);
+        Debug.Log("Current number of score" + score);
         scoreText.text = "Score: " + score;
 
     }
