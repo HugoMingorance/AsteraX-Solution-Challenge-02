@@ -5,6 +5,7 @@ using TMPro;
 using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
     public GameObject GameOverPanel;
     public TextMeshProUGUI GameOverText;
     public TextMeshProUGUI PressRToRestart;
+    public bool canRestart = false;
 
     
     // Start is called before the first frame update
@@ -45,6 +47,12 @@ public class GameController : MonoBehaviour
         if (jumps <= 0)
         {
             gameOver();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && canRestart)
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadSceneAsync(currentScene.name);
         }
     }
 
@@ -75,6 +83,7 @@ public class GameController : MonoBehaviour
         GameOverText.text = "GAME OVER";
         PressRToRestart.text = "PRESS R TO RESTART";
         Destroy(player);
+        canRestart = true;
     }
     
 }
