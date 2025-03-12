@@ -100,14 +100,6 @@ public class PlayerShip : MonoBehaviour
         }
     }
 
-    /*
-    public void getIsDanger(bool isDanger)
-    {
-        isInDanger = isDanger;
-        Debug.Log("Is the ship in danger zone?" + isInDanger);
-    }
-    */
-
     public void Respawn(float rangex, float rangey)
     {
         Debug.Log("Respawn");
@@ -116,21 +108,6 @@ public class PlayerShip : MonoBehaviour
             
         Vector2 randomPosition = new Vector2(randomX, randomY);
         transform.position = randomPosition;
-
-        /*
-        safetyZone.GetComponent<SafetyZone>().SendisInDanger();
-        
-        while (isInDanger)
-        {
-            randomX = Random.Range(-rangex, rangex);
-            randomY = Random.Range(-rangey, rangey);
-            
-            randomPosition = new Vector2(randomX, randomY);
-            transform.position = randomPosition;
-
-            safetyZone.GetComponent<SafetyZone>().SendisInDanger();
-        }
-        */
     }
 
 }
