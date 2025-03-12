@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class GameController : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (jumps <= 0)
+        {
+            gameOver();
+        }
     }
 
     public void increaseScore(int increment)
@@ -43,6 +47,11 @@ public class GameController : MonoBehaviour
         Debug.Log("Current number of jumps: " + jumps);
         jumpsText.text = "Jumps: " + jumps;
         
+    }
+
+    public void gameOver()
+    {
+        Debug.Log("Game Over");
     }
     
 }

@@ -200,7 +200,7 @@ public class Asteroid : MonoBehaviour
                 Destroy(otherGO);
                 gm.GetComponent<GameController>().increaseScore(AsteraX.AsteroidsSO.pointsForAsteroidSize[4 - size]);
             }
-
+            
             if (otherGO.tag == "Player")
             {
                 gm.GetComponent<GameController>().damage();
