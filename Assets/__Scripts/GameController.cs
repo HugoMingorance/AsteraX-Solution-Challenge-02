@@ -7,16 +7,23 @@ using UnityEngine.Analytics;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject player;
     
     private int score = 0;
     public TextMeshProUGUI scoreText;
 
     private int jumps = 3;
     public TextMeshProUGUI jumpsText;
+
+    public float rangex;
+    public float rangey;
     
     // Start is called before the first frame update
     void Start()
     {
+        
+        player = GameObject.FindGameObjectWithTag("Player");
+        
         score = 0;
         scoreText.text = "Score: " + score;
         
@@ -46,6 +53,8 @@ public class GameController : MonoBehaviour
         jumps -= 1;
         Debug.Log("Current number of jumps: " + jumps);
         jumpsText.text = "Jumps: " + jumps;
+        
+        player.GetComponent<PlayerShip>().Respawn(rangex, rangey);
         
     }
 

@@ -93,9 +93,13 @@ public class PlayerShip : MonoBehaviour
         }
     }
 
-    public void Respawn()
+    public void Respawn(float rangex, float rangey)
     {
+        float randomX = Random.Range(-rangex, rangex);
+        float randomY = Random.Range(-rangey, rangey);
         
+        Vector2 randomPosition = new Vector2(randomX, randomY);
+        transform.position = randomPosition;
     }
 
 }
