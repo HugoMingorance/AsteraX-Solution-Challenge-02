@@ -73,7 +73,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over");
         GameOverPanel.SetActive(true);
         GameOverText.text = "GAME OVER";
-        PressRToRestart.text = "Press R to Restart";
+        PressRToRestart.text = "PRESS R TO RESTART";
         Destroy(player);
     }
     

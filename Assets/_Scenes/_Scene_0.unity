@@ -1479,7 +1479,7 @@ MonoBehaviour:
   rangey: 7
   GameOverPanel: {fileID: 1322180060}
   GameOverText: {fileID: 986301765}
-  PressRToRestart: {fileID: 0}
+  PressRToRestart: {fileID: 1153928310}
 --- !u!4 &1216144677
 Transform:
   m_ObjectHideFlags: 0
