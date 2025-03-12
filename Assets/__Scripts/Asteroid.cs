@@ -204,6 +204,7 @@ public class Asteroid : MonoBehaviour
             if (otherGO.tag == "Player")
             {
                 gm.GetComponent<GameController>().damage();
+                return;
             }
 
             if (size > 1)

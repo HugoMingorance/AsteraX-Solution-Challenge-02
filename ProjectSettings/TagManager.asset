@@ -8,6 +8,7 @@ TagManager:
   - OnScreenBounds
   - DestroyWithLevelChange
   - ScoreText
+  - SafetyZone
   layers:
   - Default
   - TransparentFX

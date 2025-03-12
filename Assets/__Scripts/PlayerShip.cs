@@ -31,6 +31,9 @@ public class PlayerShip : MonoBehaviour
     public GameObject   bulletPrefab;
 
     Rigidbody           rigid;
+
+    public GameObject safetyZone;
+    public bool isInDanger = false;
     
     void Awake()
     {
@@ -40,7 +43,11 @@ public class PlayerShip : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-
+    void Start()
+    {
+        safetyZone = GameObject.FindGameObjectWithTag("SafetyZone");
+    }
+    
     void Update()
     {
         // Using Horizontal and Vertical axes to set velocity
@@ -93,13 +100,37 @@ public class PlayerShip : MonoBehaviour
         }
     }
 
+    /*
+    public void getIsDanger(bool isDanger)
+    {
+        isInDanger = isDanger;
+        Debug.Log("Is the ship in danger zone?" + isInDanger);
+    }
+    */
+
     public void Respawn(float rangex, float rangey)
     {
+        Debug.Log("Respawn");
         float randomX = Random.Range(-rangex, rangex);
         float randomY = Random.Range(-rangey, rangey);
-        
+            
         Vector2 randomPosition = new Vector2(randomX, randomY);
         transform.position = randomPosition;
+
+        /*
+        safetyZone.GetComponent<SafetyZone>().SendisInDanger();
+        
+        while (isInDanger)
+        {
+            randomX = Random.Range(-rangex, rangex);
+            randomY = Random.Range(-rangey, rangey);
+            
+            randomPosition = new Vector2(randomX, randomY);
+            transform.position = randomPosition;
+
+            safetyZone.GetComponent<SafetyZone>().SendisInDanger();
+        }
+        */
     }
 
 }

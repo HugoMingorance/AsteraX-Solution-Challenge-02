@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -18,11 +19,20 @@ public class GameController : MonoBehaviour
     public float rangex;
     public float rangey;
     
+    public GameObject GameOverPanel;
+    public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI PressRToRestart;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         
         player = GameObject.FindGameObjectWithTag("Player");
+        
+        GameOverPanel.SetActive(false);
+        GameOverText.text = "";
+        PressRToRestart.text = "";
         
         score = 0;
         scoreText.text = "Score: " + score;
@@ -61,6 +71,10 @@ public class GameController : MonoBehaviour
     public void gameOver()
     {
         Debug.Log("Game Over");
+        GameOverPanel.SetActive(true);
+        GameOverText.text = "GAME OVER";
+        PressRToRestart.text = "Press R to Restart";
+        Destroy(player);
     }
     
 }
