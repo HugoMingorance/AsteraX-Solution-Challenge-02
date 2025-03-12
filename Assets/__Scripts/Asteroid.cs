@@ -196,7 +196,7 @@ public class Asteroid : MonoBehaviour
             if (otherGO.tag == "Bullet")
             {
                 Destroy(otherGO);
-                gm.GetComponent<GameController>().increaseScore(100);
+                gm.GetComponent<GameController>().increaseScore(AsteraX.AsteroidsSO.pointsForAsteroidSize[4 - size]);
             }
             
             //if (otherGO.tag == "Player"){Damage}
