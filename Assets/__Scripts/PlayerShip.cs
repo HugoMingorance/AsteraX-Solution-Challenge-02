@@ -100,6 +100,11 @@ public class PlayerShip : MonoBehaviour
         }
     }
 
+    private void onTriggerEnter(Collider other)
+    {
+        Debug.Log("Entre algo al trigger");
+    }
+
     public void Respawn(float rangex, float rangey)
     {
         Debug.Log("Respawn");
